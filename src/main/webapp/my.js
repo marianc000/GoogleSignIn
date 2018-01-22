@@ -43,6 +43,7 @@ $(function () {
         showSignedInUserControls(email);
     }
     function printUser(googleUser) {
+        console.log('>printUser: ' + googleUser.isSignedIn());
         // Useful data for your client-side scripts:
         var profile = googleUser.getBasicProfile();
         console.log("ID: " + profile.getId()); // Don't send this directly to your server!
@@ -59,9 +60,11 @@ $(function () {
 
     function checkIfUserSignedIn() {
         console.log(">checkIfUserSignedIn");
-        var user = auth2.currentUser.get();
-        if (user) { // true if the user is signed in, or false if the user is signed out or the GoogleAuth object isn't initialized.
+        var user = auth2.currentUser.get();// Returns a GoogleUser object that represents the current user.
+        if (user && user.isSignedIn()) { // true if the user is signed in 
             onSignIn(user);
+        } else {
+            onSignOut();
         }
     }
 
