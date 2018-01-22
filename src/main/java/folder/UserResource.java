@@ -19,25 +19,24 @@ import static folder.Constants.TRANSPORT;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.util.Collections;
+import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.Response;
 
 /**
  *
  * @author mcaikovs
  */
 @Path("/test")
-public class MyRegisteredResource {
-
-  
+public class UserResource {
 
     @POST
-
     @Produces({MediaType.APPLICATION_JSON})
-    public String getToken(String token) throws GeneralSecurityException, IOException {
+    public User getToken(String token) throws GeneralSecurityException, IOException {
         System.out.println(">getToken");
-        return "{email:\""+check(token)+"\"}";
+        return new User(checkAndGetEmail(token));
     }
 
-    String check(String idTokenString) throws GeneralSecurityException, IOException {
+    String checkAndGetEmail(String idTokenString) throws GeneralSecurityException, IOException {
         GoogleIdTokenVerifier verifier = new GoogleIdTokenVerifier.Builder(TRANSPORT, JSON_FACTORY)
                 .setAudience(Collections.singletonList(CLIENT_ID))
                 // Or, if multiple clients access the backend:
@@ -64,11 +63,9 @@ public class MyRegisteredResource {
 
             System.out.println("email=" + email + "; emailVerified=" + emailVerified + "; name=" + name + "; pictureUrl=" + pictureUrl + "; familyName=" + familyName);
             return email;
-            // Use or store profile information
-            // ...
         } else {
             System.out.println("Invalid ID token.");
+            throw new WebApplicationException("Invalid token", Response.Status.FORBIDDEN);
         }
-        return "NOTHING";
     }
 }
