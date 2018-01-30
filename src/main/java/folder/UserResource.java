@@ -36,7 +36,7 @@ public class UserResource {
         return new User(checkAndGetEmail(token));
     }
 
-    String checkAndGetEmail(String idTokenString) throws GeneralSecurityException, IOException {
+  public static  String checkAndGetEmail(String idTokenString) throws GeneralSecurityException, IOException {
         GoogleIdTokenVerifier verifier = new GoogleIdTokenVerifier.Builder(TRANSPORT, JSON_FACTORY)
                 .setAudience(Collections.singletonList(CLIENT_ID))
                 // Or, if multiple clients access the backend:

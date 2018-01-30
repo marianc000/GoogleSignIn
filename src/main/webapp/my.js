@@ -129,7 +129,7 @@ $(function () {
 
     function startApp() {
         console.log(">startApp");
-        gapi.load('auth2', initAuth);
+        gapi.load('auth2', initAuth); //load the auth2 library
     }
 
     startApp();

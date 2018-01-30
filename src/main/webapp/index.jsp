@@ -12,6 +12,8 @@
         <title>TEST</title>
         <link rel="stylesheet" href="css/styles.css">
         <script   src="https://apis.google.com/js/api.js" ></script>
+        
+        
         <script src="lib/jquery.js"></script>
         <script src="my.js"></script>
     </head> 
