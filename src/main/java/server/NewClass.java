@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package openid;
+package server;
 
 import com.google.api.client.json.webtoken.JsonWebSignature;
 import com.google.api.client.json.webtoken.JsonWebToken;

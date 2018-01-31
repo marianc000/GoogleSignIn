@@ -1,6 +1,6 @@
 /*
  */
-package openid;
+package server;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -17,11 +17,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import static openid.OpenId.CODE;
-import static openid.OpenId.EMAIL;
-import static openid.OpenId.NONCE;
-import static openid.OpenId.STATE;
-import static openid.OpenId.TOKEN_ENDPOINT;
+import static server.OpenId.CODE;
+import static server.OpenId.EMAIL;
+import static server.OpenId.NONCE;
+import static server.OpenId.STATE;
+import static server.OpenId.TOKEN_ENDPOINT;
 
 /**
  *

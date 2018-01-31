@@ -1,7 +1,7 @@
-package openid;
+package server;
 
-import static folder.Constants.CLIENT_ID;
-import static folder.Constants.CLIENT_SECRET;
+import static constants.Constants.CLIENT_ID;
+import static constants.Constants.CLIENT_SECRET;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;

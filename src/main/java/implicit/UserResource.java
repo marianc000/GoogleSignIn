@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package folder;
+package implicit;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -13,9 +13,9 @@ import javax.ws.rs.core.MediaType;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken.Payload;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier;
-import static folder.Constants.CLIENT_ID;
-import static folder.Constants.JSON_FACTORY;
-import static folder.Constants.TRANSPORT;
+import static constants.Constants.CLIENT_ID;
+import static constants.Constants.JSON_FACTORY;
+import static constants.Constants.TRANSPORT;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.util.Collections;

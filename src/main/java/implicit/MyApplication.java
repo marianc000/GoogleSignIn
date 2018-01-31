@@ -1,4 +1,4 @@
-package folder;
+package implicit;
 
 import java.util.HashSet;
 import java.util.Set;
