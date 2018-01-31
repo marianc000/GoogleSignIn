@@ -17,15 +17,15 @@ import java.net.URL;
  */
 public class HttpUtils {
 
-public InputStream post(String url, String params) throws IOException {
-    URL u = new URL(url);
-    HttpURLConnection con = (HttpURLConnection) u.openConnection();
-    con.setRequestMethod("POST");
-    con.setDoOutput(true);
-    try (OutputStreamWriter out = new OutputStreamWriter(con.getOutputStream())) {
-        out.write(params);
-    }
+    public InputStream post(String url, String params) throws IOException {
+        URL u = new URL(url);
+        HttpURLConnection con = (HttpURLConnection) u.openConnection();
+        con.setRequestMethod("POST");
+        con.setDoOutput(true);
+        try (OutputStreamWriter out = new OutputStreamWriter(con.getOutputStream())) {
+            out.write(params);
+        }
 
-    return con.getInputStream();
-}
+        return con.getInputStream();
+    }
 }

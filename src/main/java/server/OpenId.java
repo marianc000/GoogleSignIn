@@ -3,7 +3,6 @@ package server;
 import static constants.Constants.CLIENT_ID;
 import static constants.Constants.CLIENT_SECRET;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.StringReader;
 import java.math.BigInteger;
 import java.security.SecureRandom;
@@ -15,7 +14,12 @@ import javax.json.JsonReader;
 
 public class OpenId {
 
-    public static String CODE = "code", STATE = "state",EMAIL="email", NONCE = "nonce", TOKEN_ENDPOINT = "https://www.googleapis.com/oauth2/v4/token", REDIRECT_URI = "http://localhost:8080/test/test2",
+    public static String CODE = "code",
+            STATE = "state",
+            EMAIL = "email",
+            NONCE = "nonce",
+            TOKEN_ENDPOINT = "https://www.googleapis.com/oauth2/v4/token",
+            REDIRECT_URI = "http://localhost:8080/test/server",
             ID_TOKEN = "id_token";
     String BASE_URL = "https://accounts.google.com/o/oauth2/v2/auth"; // HTTP connections are refused
     Random r = new Random();
@@ -24,16 +28,6 @@ public class OpenId {
         System.out.println(new OpenId().getUrl("TEST_STATE", "TEST_NONCE"));
     }
 
-    /*
-            gapi.auth2.init({
-            client_id: clientId,
-            fetch_basic_profile: false, // By default, the fetch_basic_profile parameter of gapi.auth2.init() is set to true, which will automatically add 'email profile openid' as scope.
-            scope: 'email',
-            ux_mode: 'redirect', // The UX mode to use for the sign-in flow. By default, it will open the consent flow in a popup. Valid values are popup and redirect.
-            redirect_uri: 'http://localhost:8080/test/' //If using ux_mode='redirect', this parameter allows you to override the default redirect_uri that will be used at the end of the consent flow. 
-                    //// The default redirect_uri is the current URL stripped of query parameters and hash fragment.
-        })
-     */
     String getUrl(String state, String nonce) {
         return BASE_URL + "?client_id=" + CLIENT_ID + "&redirect_uri=" + REDIRECT_URI + "&scope=email&response_type=code&" + NONCE + "=" + nonce + "&" + STATE + "=" + state;
 
@@ -69,5 +63,6 @@ public class OpenId {
         System.out.println(jobj);
         return jobj;
     }
+    
     HttpUtils http = new HttpUtils();
 }
