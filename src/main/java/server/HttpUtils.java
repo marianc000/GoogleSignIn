@@ -18,6 +18,8 @@ import java.net.URL;
 public class HttpUtils {
 
     public InputStream post(String url, String params) throws IOException {
+        System.out.println("post: url="+url);
+        System.out.println("post: "+params);
         URL u = new URL(url);
         HttpURLConnection con = (HttpURLConnection) u.openConnection();
         con.setRequestMethod("POST");

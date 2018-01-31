@@ -53,16 +53,15 @@ public class OpenId {
         }
     }
 
-    public JsonObject decodeIdToken(String idToken) {
-
-        String secondStr = idToken.split("\\.")[1];
-        byte[] payloadBytes = Base64.getDecoder().decode(secondStr);
-        String json = new String(payloadBytes);
-        JsonReader jsonReader = Json.createReader(new StringReader(json));
-        JsonObject jobj = jsonReader.readObject();
-        System.out.println(jobj);
-        return jobj;
-    }
+public JsonObject decodeIdToken(String idToken) {
+    String secondStr = idToken.split("\\.")[1];
+    byte[] payloadBytes = Base64.getDecoder().decode(secondStr);
+    String json = new String(payloadBytes);
+    JsonReader jsonReader = Json.createReader(new StringReader(json));
+    JsonObject jobj = jsonReader.readObject();
+    System.out.println(jobj);
+    return jobj;
+}
     
     HttpUtils http = new HttpUtils();
 }
