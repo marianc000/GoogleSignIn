@@ -39,7 +39,6 @@ public class MyAuthServlet extends HttpServlet {
 
         System.out.println(code);
         try (PrintWriter out = response.getWriter()) {
-
             if (code != null) {
                 //On the server, you must confirm that the state received from Google matches the session token you created in Step 1. This round-trip verification helps to ensure that the user, not a malicious script, is making the request.
                 if (savedState.equals(receivedState)) {
