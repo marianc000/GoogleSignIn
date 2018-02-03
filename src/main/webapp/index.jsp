@@ -4,7 +4,8 @@
     Author     : mcaikovs
 --%>
 
-<%@page import="static folder.Constants.CLIENT_ID"%>
+
+<%@page import="static constants.Constants.CLIENT_ID"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
